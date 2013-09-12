@@ -1,0 +1,319 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		012CD0E217C84D7A00AD2C89 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 012CD0E117C84D7A00AD2C89 /* Cocoa.framework */; };
+		012CD0EC17C84D7A00AD2C89 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 012CD0EA17C84D7A00AD2C89 /* InfoPlist.strings */; };
+		01E8CAB317DE9C5400AA7FEC /* IDESourceCodeEditorHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E8CAAB17DE9C5400AA7FEC /* IDESourceCodeEditorHook.m */; };
+		01E8CAB417DE9C5400AA7FEC /* XVimHookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E8CAAC17DE9C5400AA7FEC /* XVimHookManager.m */; };
+		01E8CAB517DE9C5400AA7FEC /* IDEEditorHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E8CAAD17DE9C5400AA7FEC /* IDEEditorHook.m */; };
+		01E8CAB617DE9C5400AA7FEC /* Hooker.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E8CAAF17DE9C5400AA7FEC /* Hooker.m */; };
+		01F1E7D317C89E87002B8D8B /* XcodeVimObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F1E7D217C89E87002B8D8B /* XcodeVimObject.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		012CD0DE17C84D7A00AD2C89 /* xcode_vim.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xcode_vim.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		012CD0E117C84D7A00AD2C89 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		012CD0E417C84D7A00AD2C89 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		012CD0E517C84D7A00AD2C89 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		012CD0E617C84D7A00AD2C89 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		012CD0E917C84D7A00AD2C89 /* xcode_vim-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "xcode_vim-Info.plist"; sourceTree = "<group>"; };
+		012CD0EB17C84D7A00AD2C89 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		012CD0ED17C84D7A00AD2C89 /* xcode_vim-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "xcode_vim-Prefix.pch"; sourceTree = "<group>"; };
+		01E8CAAB17DE9C5400AA7FEC /* IDESourceCodeEditorHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDESourceCodeEditorHook.m; sourceTree = "<group>"; };
+		01E8CAAC17DE9C5400AA7FEC /* XVimHookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XVimHookManager.m; sourceTree = "<group>"; };
+		01E8CAAD17DE9C5400AA7FEC /* IDEEditorHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDEEditorHook.m; sourceTree = "<group>"; };
+		01E8CAAE17DE9C5400AA7FEC /* Hooker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hooker.h; sourceTree = "<group>"; };
+		01E8CAAF17DE9C5400AA7FEC /* Hooker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hooker.m; sourceTree = "<group>"; };
+		01E8CAB017DE9C5400AA7FEC /* IDEEditorHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDEEditorHook.h; sourceTree = "<group>"; };
+		01E8CAB117DE9C5400AA7FEC /* IDESourceCodeEditorHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDESourceCodeEditorHook.h; sourceTree = "<group>"; };
+		01E8CAB217DE9C5400AA7FEC /* XVimHookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XVimHookManager.h; sourceTree = "<group>"; };
+		01F1E7D117C89E87002B8D8B /* XcodeVimObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeVimObject.h; sourceTree = "<group>"; };
+		01F1E7D217C89E87002B8D8B /* XcodeVimObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XcodeVimObject.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		012CD0DB17C84D7A00AD2C89 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				012CD0E217C84D7A00AD2C89 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		012CD0D517C84D7A00AD2C89 = {
+			isa = PBXGroup;
+			children = (
+				012CD0E717C84D7A00AD2C89 /* xcode_vim */,
+				012CD0E017C84D7A00AD2C89 /* Frameworks */,
+				012CD0DF17C84D7A00AD2C89 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		012CD0DF17C84D7A00AD2C89 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				012CD0DE17C84D7A00AD2C89 /* xcode_vim.xcplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		012CD0E017C84D7A00AD2C89 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				012CD0E117C84D7A00AD2C89 /* Cocoa.framework */,
+				012CD0E317C84D7A00AD2C89 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		012CD0E317C84D7A00AD2C89 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				012CD0E417C84D7A00AD2C89 /* AppKit.framework */,
+				012CD0E517C84D7A00AD2C89 /* CoreData.framework */,
+				012CD0E617C84D7A00AD2C89 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		012CD0E717C84D7A00AD2C89 /* xcode_vim */ = {
+			isa = PBXGroup;
+			children = (
+				01E8CAAB17DE9C5400AA7FEC /* IDESourceCodeEditorHook.m */,
+				01E8CAAC17DE9C5400AA7FEC /* XVimHookManager.m */,
+				01E8CAAD17DE9C5400AA7FEC /* IDEEditorHook.m */,
+				01E8CAAE17DE9C5400AA7FEC /* Hooker.h */,
+				01E8CAAF17DE9C5400AA7FEC /* Hooker.m */,
+				01E8CAB017DE9C5400AA7FEC /* IDEEditorHook.h */,
+				01E8CAB117DE9C5400AA7FEC /* IDESourceCodeEditorHook.h */,
+				01E8CAB217DE9C5400AA7FEC /* XVimHookManager.h */,
+				012CD0E817C84D7A00AD2C89 /* Supporting Files */,
+				01F1E7D117C89E87002B8D8B /* XcodeVimObject.h */,
+				01F1E7D217C89E87002B8D8B /* XcodeVimObject.m */,
+			);
+			path = xcode_vim;
+			sourceTree = "<group>";
+		};
+		012CD0E817C84D7A00AD2C89 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				012CD0E917C84D7A00AD2C89 /* xcode_vim-Info.plist */,
+				012CD0EA17C84D7A00AD2C89 /* InfoPlist.strings */,
+				012CD0ED17C84D7A00AD2C89 /* xcode_vim-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		012CD0DD17C84D7A00AD2C89 /* xcode_vim */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 012CD0F017C84D7A00AD2C89 /* Build configuration list for PBXNativeTarget "xcode_vim" */;
+			buildPhases = (
+				012CD0DA17C84D7A00AD2C89 /* Sources */,
+				012CD0DB17C84D7A00AD2C89 /* Frameworks */,
+				012CD0DC17C84D7A00AD2C89 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = xcode_vim;
+			productName = xcode_vim;
+			productReference = 012CD0DE17C84D7A00AD2C89 /* xcode_vim.xcplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		012CD0D617C84D7A00AD2C89 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = FrankLiu;
+			};
+			buildConfigurationList = 012CD0D917C84D7A00AD2C89 /* Build configuration list for PBXProject "xcode_vim" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 012CD0D517C84D7A00AD2C89;
+			productRefGroup = 012CD0DF17C84D7A00AD2C89 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				012CD0DD17C84D7A00AD2C89 /* xcode_vim */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		012CD0DC17C84D7A00AD2C89 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				012CD0EC17C84D7A00AD2C89 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		012CD0DA17C84D7A00AD2C89 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01F1E7D317C89E87002B8D8B /* XcodeVimObject.m in Sources */,
+				01E8CAB317DE9C5400AA7FEC /* IDESourceCodeEditorHook.m in Sources */,
+				01E8CAB417DE9C5400AA7FEC /* XVimHookManager.m in Sources */,
+				01E8CAB517DE9C5400AA7FEC /* IDEEditorHook.m in Sources */,
+				01E8CAB617DE9C5400AA7FEC /* Hooker.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		012CD0EA17C84D7A00AD2C89 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				012CD0EB17C84D7A00AD2C89 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		012CD0EE17C84D7A00AD2C89 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		012CD0EF17C84D7A00AD2C89 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		012CD0F117C84D7A00AD2C89 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "xcode_vim/xcode_vim-Prefix.pch";
+				HEADER_SEARCH_PATHS = ./XcodeClasses;
+				INFOPLIST_FILE = "xcode_vim/xcode_vim-Info.plist";
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYMROOT = "${HOME}";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Debug;
+		};
+		012CD0F217C84D7A00AD2C89 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "xcode_vim/xcode_vim-Prefix.pch";
+				HEADER_SEARCH_PATHS = ./XcodeClasses;
+				INFOPLIST_FILE = "xcode_vim/xcode_vim-Info.plist";
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYMROOT = "${HOME}";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		012CD0D917C84D7A00AD2C89 /* Build configuration list for PBXProject "xcode_vim" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				012CD0EE17C84D7A00AD2C89 /* Debug */,
+				012CD0EF17C84D7A00AD2C89 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		012CD0F017C84D7A00AD2C89 /* Build configuration list for PBXNativeTarget "xcode_vim" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				012CD0F117C84D7A00AD2C89 /* Debug */,
+				012CD0F217C84D7A00AD2C89 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 012CD0D617C84D7A00AD2C89 /* Project object */;
+}

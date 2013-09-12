@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'xcode_vim' target in the 'xcode_vim' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif

@@ -1,0 +1,61 @@
+1,要向 Git 进行自我介绍，请使用以下命令：
+git config --global user.name "Your Name Comes Here"
+git config --global user.email you@yourdomain.example.com
+2, git init
+3, git add .  
+很多版本控制系统都提供了一个 "add" 命令：告诉系统开始去跟踪某一个文件的改动。
+但是Git里的 ”add” 命令从种程度上讲更为简单和强大. 
+git add 不但是用来添加不在版本控制中的新文件，也用于添加已在版本控制中但
+刚修改过的文件; 在这两种情况下, Git都会获得当前文件的快照并且把内容暂存(stage)到索引中，
+为下一次comm做好准备。
+
+4, git commit, git diff
+5,Git 提供了文档忽略机制，可以将工作树中你不希望接受 Git 
+管理的文档信息写到同一目录下的 .gitignore 文件中
+6,Git 仓库就是那个 .git 目录，其中存放的是我们所提交的文档索引内容， 
+工作树是包含 .git子目录的目录
+7,git clone xxx.git xxx_new克隆一个新的工作树
+只要我们拥有仓库，即.git目录 ，那么就可以很容易地生成工作树.
+8,git log, git status,
+9,git show version_number
+10,查找git子命令帮助man git-xxx
+11, git pull 命令可将属于同一项目的远端仓库与本地仓库进
+行合并，它包含了两个操作：从远端仓库中取出最新版本，然后合并到本地仓库。
+12, git push 可将本地版本更新推送到远端仓库中。
+clone,pull,push3个命令就可以实现多人协同开发,这些SVN也可以,
+git比SVN先进的地方在哪里呢?
+任何时候可以commit修改的内容,和svn的主要区别是:
+a,版本号用SHA1表示,HEAD指向你最近一次提交后的结果
+b,commit命令只是提交到local仓库,要提交到远端服务器仓库用git push命令.
+c,checkout和svn的不一样,有其它用处,clone才对应svn的checkout命令.
+d,提交前要先git add修改的文件或者git commit -a才行.  
+
+13,Git 最为世人称道的就是它那强大的项目分支管理功能,
+master分支，该分支是由 Git 自动产生的.
+git branch xxx创建一个新的xxx分支.
+14,git branch可以列出所有的分支,若分支名之前存在 * 符号，表示此分支为当前分支。
+其实 Git 各分支不存在尊卑之别，只存在哪个分支是当前分支的区别。
+git checkout xxx将当前分支设置成xxx分支.  
+15,分支合并:
+git checkout master #将当前分支切换为master
+git merge local  #将local分支与当前分支合并
+git branch -d local #将local分支删除.
+16,more usage refer to git-cheat-sheet
+17,Subversion、CVS、Perforce、Mercurial 等等，他
+们使用 “增量文件系统” （Delta Storage systems）, 就是说它们存储每次提交
+(commit)之间的差异。Git正好与之相反，它会把你的每次提交的文件的全部内容（snapshot）都会记录下来
+18,每一个项目只能有一个'Git目录'(这和SVN,CVS的每个子目录中都有此类目录相反).
+19,这里有一个关于写commit注释的技巧和大家分享:commit注释最好以一行短句子作为开头，来简要描述一下这次
+commit所作的修改(最好不要超过50个字符)；然后空一行再把详细的注释写清楚。这样就可以很方便的用工具把
+commit注释变成email通知，第一行作为标题，剩下的部分就作email的正文.
+20,一些tips: 
+内建的图形化 git：gitk
+彩色的 git 输出：git config color.ui true
+显示历史记录时，只显示一行注释信息：git config format.pretty oneline
+交互地添加文件至缓存区：git add -i
+
+21, git remote add origin https://github.com/try-git/try_git.git 
+The name of our remote is origin and the default local branch name is master. 
+The -u tells Git to remember the parameters, 
+so that next time we can simply run git push and Git will know what to do.
+22, best interactive learning @http://try.github.io/wrap_up 
