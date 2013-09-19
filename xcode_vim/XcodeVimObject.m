@@ -275,14 +275,14 @@ static XcodeVimObject * g_instance = nil;
                              arguments:args];
 #else
     NSString* args = [NSString
-                       stringWithFormat:@"--servername xcode4 --remote-silent +%lld \"%@\"",
+                       stringWithFormat:@"/Applications/MacVim.app/Contents/MacOS/MacVim --servername xcode4 --remote-silent +%lld %@",
                        g_currentLineNumber, m_documentPath ];
    
     launch_cmd ( [args UTF8String] );
     
 #endif
     
-    NSLog (@"[run macvim:%@", args);
+    // NSLog (@"[run macvim:%@", args);
 }
 
 //Finding a Control
