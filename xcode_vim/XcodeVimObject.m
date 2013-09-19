@@ -2,12 +2,92 @@
 //  XcodeVimObject.m
 //  xcode_vim
 //
-//  Created by FrankLiu on 13-8-24.
+//  Created by chliu on 13-8-24.
 //  Copyright (c) 2013 chliu. All rights reserved.
 //
 
 #import "XcodeVimObject.h"
 #import "XVimHookManager.h"
+
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <stddef.h>
+#include <unistd.h>
+#include <spawn.h>
+#include <paths.h>
+#include <errno.h>
+#include <crt_externs.h>
+
+#define environ (*_NSGetEnviron())
+
+static int launch_cmd ( const char* command  )
+{
+	pid_t pid;
+	int pstat, err;
+	struct sigaction ign, intact, quitact;
+	sigset_t newsigblock, oldsigblock, defaultsig;
+	posix_spawnattr_t attr;
+	short flags = POSIX_SPAWN_SETSIGMASK;
+	const char *argv[] = {"sh", "-c", command, NULL};
+    
+	if ((err = posix_spawnattr_init(&attr)) != 0) {
+		errno = err;
+		return -1;
+	}
+    
+#if 0
+	(void)sigemptyset(&defaultsig);
+    
+    
+	/*
+	 * Ignore SIGINT and SIGQUIT, block SIGCHLD. Remember to save
+	 * existing signal dispositions.
+	 */
+	ign.sa_handler = SIG_IGN;
+	(void)sigemptyset(&ign.sa_mask);
+	ign.sa_flags = 0;
+	(void)_sigaction(SIGINT, &ign, &intact);
+	if (intact.sa_handler != SIG_IGN) {
+		sigaddset(&defaultsig, SIGINT);
+		flags |= POSIX_SPAWN_SETSIGDEF;
+	}
+	(void)_sigaction(SIGQUIT, &ign, &quitact);
+	if (quitact.sa_handler != SIG_IGN) {
+		sigaddset(&defaultsig, SIGQUIT);
+		flags |= POSIX_SPAWN_SETSIGDEF;
+	}
+	(void)sigemptyset(&newsigblock);
+	(void)sigaddset(&newsigblock, SIGCHLD);
+	//(void)_sigprocmask(SIG_BLOCK, &newsigblock, &oldsigblock);
+#endif
+    
+	(void)posix_spawnattr_setsigmask(&attr, &oldsigblock);
+	if (flags & POSIX_SPAWN_SETSIGDEF) {
+		(void)posix_spawnattr_setsigdefault(&attr, &defaultsig);
+	}
+	(void)posix_spawnattr_setflags(&attr, flags);
+    
+	err = posix_spawn(&pid, _PATH_BSHELL, NULL, &attr, (char *const *)argv, environ);
+	(void)posix_spawnattr_destroy(&attr);
+	if (err == 0) {
+		fprintf (stderr, "%d\n", pid);
+	} else if (err == ENOMEM || err == EAGAIN) { /* as if fork failed */
+		pstat = -1;
+	} else {
+		pstat = W_EXITCODE(127, 0); /* couldn't exec shell */
+	}
+    
+#if 0
+	(void)_sigaction(SIGINT, &intact, NULL);
+	(void)_sigaction(SIGQUIT,  &quitact, NULL);
+	(void)_sigprocmask(SIG_SETMASK, &oldsigblock, NULL);
+#endif
+    
+    return 0;
+}
+
 
 // XCODE shortcuts setting file:
 ///Applications/Xcode.app/Contents/Frameworks/IDEKit.framework/Versions/A/Resources/IDETextKeyBindingSet.plist
@@ -16,6 +96,8 @@
 // ~/Library/Application Support/Developer/Shared/Xcode/Plug-ins
 
 long long g_currentLineNumber = 0;
+
+
 
 @implementation NSView (Dumping)
 
@@ -75,14 +157,12 @@ static XcodeVimObject * g_instance = nil;
 
 +(void)pluginDidLoad:(NSBundle *)plugin
 {
-	NSLog (@"This is my vim Xcode plugin!");
+	NSLog (@"This is vim Xcode plugin!");
     
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
 		g_instance = [[self alloc] init];
-        
-        [ g_instance load];
-	});
+    });
 }
 
 +(XcodeVimObject *)instance
@@ -103,7 +183,10 @@ static XcodeVimObject * g_instance = nil;
 	if (self = [super init])
     {
         // Entry Point of the Plugin.
+        m_documentPath = nil;
         
+        [self addMenuItems];
+
         // Do the hooking after the App has finished launching,
         // Otherwise, we may miss some classes.
         
@@ -115,11 +198,7 @@ static XcodeVimObject * g_instance = nil;
                                selector: @selector( hookWhenDidFinishLaunching )
                                    name: NSApplicationDidFinishLaunchingNotification
                                  object: nil];
-
-        m_documentPath = nil;
-    
-        [self addMenuItems];
-    
+            
 #ifdef HOOK_XCODE_NOTIFY
         [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(notificationListener:)
@@ -147,22 +226,22 @@ static XcodeVimObject * g_instance = nil;
 -(void)notificationListener:(NSNotification *)notification
 {
     if( [notification.name hasPrefix:@"IDE"] || [notification.name hasPrefix:@"DVT"] )
-        {
+    {
         TRACE_LOG(@"Got notification name : %@    object : %@",
                   notification.name, NSStringFromClass([[notification object] class]));
-        }
+    }
 }
 #endif
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if( [keyPath isEqualToString:@"document"] )
-        {
+    {
         NSString *documentPath = [[[object document] fileURL] path];
         
         [m_documentPath release];
         m_documentPath = [documentPath retain];
-        }
+    }
 }
 
 -(void)addMenuItems
@@ -186,15 +265,25 @@ static XcodeVimObject * g_instance = nil;
 -(void)editByVim:(id)sender
 {
     //call macvim
-    NSArray* cmd = [NSArray arrayWithObjects:@"--servername xcode",
+#if 0
+    NSArray* args = [NSArray arrayWithObjects:@"--servername xcode4",
                     @"--remote-silent",
-                    [NSString stringWithFormat:@"+%lld", g_currentLineNumber], m_documentPath,nil ];
+                    [NSString stringWithFormat:@"+%lld", g_currentLineNumber],
+                    m_documentPath,nil ];
     
-    //NSLog (@"[run macvim:%@", cmd);
+    [NSTask launchedTaskWithLaunchPath:@"/Applications/MacVim.app/Contents/MacOS/MacVim"
+                             arguments:args];
+#else
+    NSString* args = [NSString
+                       stringWithFormat:@"--servername xcode4 --remote-silent +%lld \"%@\"",
+                       g_currentLineNumber, m_documentPath ];
+   
+    launch_cmd ( [args UTF8String] );
     
-    [NSTask launchedTaskWithLaunchPath:@"/Applications/MacVim.app/Contents/MacOS/MacVim" arguments:cmd];
-
-} 
+#endif
+    
+    NSLog (@"[run macvim:%@", args);
+}
 
 //Finding a Control
 //

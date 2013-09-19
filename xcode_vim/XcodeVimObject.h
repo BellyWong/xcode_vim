@@ -2,7 +2,7 @@
 //  XcodeVimObject.h
 //  xcode_vim
 //
-//  Created by FrankLiu on 13-8-24.
+//  Created by chliu on 13-8-24.
 //  Copyright (c) 2013 chliu. All rights reserved.
 //
 
